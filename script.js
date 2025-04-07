@@ -6,6 +6,16 @@ themeSwitch.addEventListener("change", () => {
 async function explainCode() {
   const code = document.getElementById("codeInput").value;
   const language = document.getElementById("language").value;
+
+  // Get selected expertise (radio or dropdown)
+  const expertiseRadio = document.querySelector('input[name="expertise"]:checked');
+  const expertiseDropdown = document.getElementById("expertise");
+  const expertise = expertiseRadio
+    ? expertiseRadio.value
+    : expertiseDropdown
+    ? expertiseDropdown.value
+    : "beginner";
+
   const output = document.getElementById("output");
   output.innerHTML = "<span class='loader'></span> Thinking... 🤖";
 
@@ -13,7 +23,7 @@ async function explainCode() {
     const response = await fetch("https://ai-backend-1-yyc4.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code, language })
+      body: JSON.stringify({ code, language, expertise })
     });
 
     const data = await response.json();
@@ -114,6 +124,36 @@ function checkQuiz() {
   });
 
   document.getElementById("quizResult").textContent = `Score: ${score} / ${quiz.length}`;
+}
+
+// AI Mentor Chat Feature
+async function sendMentorMessage() {
+  const userInput = document.getElementById("chatInput").value;
+  const chatBox = document.getElementById("chatBox");
+
+  if (!userInput.trim()) return;
+
+  chatBox.innerHTML += `<div class="user-msg">👤 ${userInput}</div>`;
+  document.getElementById("chatInput").value = "";
+
+  chatBox.innerHTML += `<div class="ai-msg"><span class="loader"></span> AI is thinking...</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  try {
+    const response = await fetch("https://ai-backend-1-yyc4.onrender.com/mentor-chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userInput })
+    });
+
+    const data = await response.json();
+    const aiReply = data.reply || "Sorry, I didn't understand that.";
+    chatBox.innerHTML = chatBox.innerHTML.replace(/<div class="ai-msg">.*?<\/div>$/, '');
+    chatBox.innerHTML += `<div class="ai-msg">🤖 ${aiReply}</div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  } catch (err) {
+    chatBox.innerHTML += `<div class="ai-msg error">⚠️ Couldn't connect to AI Mentor.</div>`;
+  }
 }
 
 document.getElementById("language").addEventListener("change", loadQuiz);
