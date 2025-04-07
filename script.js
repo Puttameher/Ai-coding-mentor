@@ -10,7 +10,7 @@ async function explainCode() {
   output.innerHTML = "<span class='loader'></span> Thinking... 🤖";
 
   try {
-    const response = await fetch("http://localhost:5000/api/explain", {
+    const response = await fetch("https://ai-backend-1-yyc4.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ code, language })
