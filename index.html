@@ -33,6 +33,24 @@
       </label>
       <span class="toggle-label">Dark Mode</span>
     </div>
+    <!-- Chatbot Interface -->
+<!-- Chatbot Interface -->
+<div id="chatbot" class="chatbot glass">
+  <h2 class="chatbot-title">🤖 Chat with AI Mentor</h2>
+
+  <div id="chatbox" class="chatbox"></div>
+  <input type="text" id="userInput" placeholder="Ask me about programming topics...">
+  <button class="glow-btn" onclick="sendMessage()">Send</button>
+</div>
+
+
+    <!-- Expertise Level Buttons -->
+<div class="expertise-levels">
+  <button class="glow-btn" onclick="setExpertise('Beginner')">Beginner</button>
+  <button class="glow-btn" onclick="setExpertise('Intermediate')">Intermediate</button>
+  <button class="glow-btn" onclick="setExpertise('Advanced')">Advanced</button>
+</div>
+
 
     <label for="language">Choose Language:</label>
     <select id="language">
