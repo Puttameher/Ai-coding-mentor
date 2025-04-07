@@ -32,7 +32,7 @@ body::before {
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   background: linear-gradient(90deg, #00ffe0, #0ff, #00f7ff);
   -webkit-background-clip: text;
   color: transparent;
@@ -300,3 +300,91 @@ body.dark select {
 body.dark label {
   color: #00ffee;
 }
+/* Chatbot Styles */
+.chatbot {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: left;
+}
+
+.chatbox {
+  height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: rgba(0, 149, 255, 0.05);
+  border-radius: 10px;
+}
+
+#userInput {
+  width: calc(100% - 90px);
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #555;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+/* Expertise Level Buttons */
+.expertise-levels {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.glow-btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.glow-btn:nth-child(1) {
+  background: linear-gradient(90deg, #00ff00, #00ff88);
+  box-shadow: 0 0 15px #00ff88;
+}
+
+.glow-btn:nth-child(2) {
+  background: linear-gradient(90deg, #ffcc00, #ffdd55);
+  box-shadow: 0 0 15px #ffdd55;
+}
+
+.glow-btn:nth-child(3) {
+  background: linear-gradient(90deg, #ff0000, #ff5555);
+  box-shadow: 0 0 15px #ff5555;
+}
+
+.glow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+/* Neon Glowing Title Style */
+
+
+/* Optional: Only glow "AI Mentor" */
+.neon-glow {
+  color: #00ffff;
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+/* Clean Modern Style for Main Title */
+.chatbot-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: left;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+
+}
+
+/* Subtle Glowing Subtitle */
